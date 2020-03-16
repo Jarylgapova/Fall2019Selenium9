@@ -1,4 +1,4 @@
-package com.automation.tests.practice;
+package com.automation.tests.practiceShort;
 
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
