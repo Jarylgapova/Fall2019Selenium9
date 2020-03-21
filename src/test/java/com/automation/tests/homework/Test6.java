@@ -81,7 +81,6 @@ public class Test6 {
         WebDriverManager.chromedriver().version("80").setup();
         driver = new ChromeDriver();
         driver.get(URL1);
-       // driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[43]/a")).click();
         driver.manage().window().maximize();
         BrowserUtils.wait(3);
 
