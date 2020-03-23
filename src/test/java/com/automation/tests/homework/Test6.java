@@ -73,6 +73,10 @@ public class Test6 {
                 System.out.println("Test Fail !!!");
             }
         }
+
+        String expected2 = "Thanks for subscribing to practice.cybertekschool.com!";
+        String actual2 = driver.findElement(By.id("predmet")).getText();
+        assertEquals(actual2,expected2);
     }
 
 
