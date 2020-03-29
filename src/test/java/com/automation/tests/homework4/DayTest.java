@@ -362,7 +362,50 @@ public class DayTest {
         driver.findElement(By.xpath("//i[@class='a-icon a-icon-prime a-icon-medium']/../div/label/i")).click();
 
         String nameAfterClick = driver.findElement(By.xpath("(//i[@aria-label='Amazon Prime']/../../../../../..//h2)[1]")).getText();
+
+        System.out.println(firstPrime);
+        System.out.println(nameAfterClick);
         Assert.assertEquals(nameAfterClick,firstPrime);
+    }
+
+    @Test
+    public void moreSpoon(){
+        driver.get("https://www.amazon.com/");
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("wooden spoon");
+        driver.findElement(By.xpath("//span[@id='nav-search-submit-text']/following-sibling::input")).click();
+
+        List<WebElement> brand = driver.findElements(By.xpath("//div[@id='brandsRefinements']//ul/li/span/a/span"));
+
+        List<String> brands = new ArrayList<>();
+        for (WebElement each : brand) {
+            brands.add(each.getText());
+        }
+
+        driver.findElement(By.xpath("//i[@class='a-icon a-icon-prime a-icon-medium']/../div/label/i")).click();
+
+        List<WebElement> brandsAfterClick = driver.findElements(By.xpath("//div[@id='brandsRefinements']//ul/li/span/a/span"));
+
+        List<String> brands2 = new ArrayList<>();
+        for (WebElement each : brandsAfterClick) {
+            brands2.add(each.getText());
+        }
+        Assert.assertEquals(brands,brands2);
+    }
+
+    @Test
+    public void cheapSpoon(){
+        driver.get("https://www.amazon.com/");
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("wooden spoon");
+        driver.findElement(By.xpath("//span[@id='nav-search-submit-text']/following-sibling::input")).click();
+
+        driver.findElement(By.xpath("//div[@id='priceRefinements']//span[@class='a-size-base a-color-base'][1]")).click();
+
+        List<WebElement> allPrice = driver.findElements(By.xpath("//span[@class='a-price-whole']"));
+
+        for(WebElement each : allPrice ){
+            int price = Integer.parseInt(each.getText());
+            Assert.assertTrue(price<25, "There is not all price less than 25");
+        }
     }
 
 
@@ -372,6 +415,9 @@ public class DayTest {
         driver = DriverFactory.createADriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
+
 
 
     }
