@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class DayTest {
+public class Homework4 {
 
     public WebDriver driver;
 
