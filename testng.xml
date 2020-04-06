@@ -5,4 +5,10 @@
             <class name="com.automation.tests.vytrack.login.NewLoginTests"/>
         </classes>
     </test>
+    <test name="Calendar events">
+        <classes>
+           <class name="com.automation.tests.vytrack.activities.NewCalendarEventsTest">
+           </class>
+        </classes>
+    </test>
 </suite>

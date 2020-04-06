@@ -24,11 +24,8 @@ public class AbstractTestBase {
 
     //@Optional - to make parameter optional
     //if you don't specify it, testng will require to specify this parameter for every test, in xml runner
-    @BeforeTest
-    @Parameters("reportName")
+    @BeforeSuite
     public void setupTest(@Optional String reportName) {
-        System.out.println("Report name: " + reportName);
-        reportName = reportName == null ? "report.html" : reportName+".html";
 
         report = new ExtentReports();
 
