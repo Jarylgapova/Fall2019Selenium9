@@ -1,11 +1,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
  <suite name="Test suit">
     <test name="Login test">
+        <parameter name="reportName" value="login"></parameter>
         <classes>
             <class name="com.automation.tests.vytrack.login.NewLoginTests"/>
         </classes>
     </test>
     <test name="Calendar events">
+        <parameter name="reportName" value="calendarEvents"></parameter>
         <classes>
            <class name="com.automation.tests.vytrack.activities.NewCalendarEventsTest">
            </class>

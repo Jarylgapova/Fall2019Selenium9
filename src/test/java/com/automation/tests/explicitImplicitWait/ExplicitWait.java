@@ -53,7 +53,7 @@ public class ExplicitWait {
     public void elementToBeClickableTest(){
         driver.get("http://practice.cybertekschool.com/dynamic_loading/5");
 
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 25);
 
         WebElement username = driver.findElement(By.name("username"));
         WebElement password = driver.findElement(By.name("password"));

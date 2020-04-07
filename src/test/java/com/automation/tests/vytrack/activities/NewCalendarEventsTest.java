@@ -24,6 +24,8 @@ public class NewCalendarEventsTest extends AbstractTestBase {
      **/
     @Test
     public void defaultOptionsTest(){
+        test = report.createTest("Verify default login options");
+
         LoginPage login = new LoginPage();
         CalenderEventsPage calenderEventsPage = new CalenderEventsPage();
 
@@ -32,8 +34,8 @@ public class NewCalendarEventsTest extends AbstractTestBase {
         calenderEventsPage.clickToCreateCalendarEvent();
         Assert.assertEquals(calenderEventsPage.getOwnerName(), calenderEventsPage.getCurrentUserName());
 
-        Assert.assertEquals(calenderEventsPage.getStartDate(), DateTimeUtilities.getCurrentDate("MMM dd, yyyy"));
-
+        Assert.assertEquals(calenderEventsPage.getStartDate(), DateTimeUtilities.getCurrentDate("MMM d, yyyy"));
+        test.pass("Default options verified");
 
     }
 
@@ -48,6 +50,9 @@ public class NewCalendarEventsTest extends AbstractTestBase {
      **/
     @Test
     public void timeDifferenceTest(){
+
+        test = report.createTest("Verify time differences");
+
         LoginPage login = new LoginPage();
         CalenderEventsPage calenderEventsPage = new CalenderEventsPage();
 
@@ -62,6 +67,8 @@ public class NewCalendarEventsTest extends AbstractTestBase {
         long actual = DateTimeUtilities.getTimeDifference(startTime, endTime,format);
 
         Assert.assertEquals(actual, 1, "Time differences is not correct");
+
+        test.pass("time differences verified");
     }
 
     /**
@@ -79,6 +86,9 @@ public class NewCalendarEventsTest extends AbstractTestBase {
      */
     @Test
     public void verifyColumnNames(){
+
+        test = report.createTest("Verify column names");
+
         LoginPage login = new LoginPage();
         CalenderEventsPage calenderEventsPage = new CalenderEventsPage();
 
@@ -87,6 +97,7 @@ public class NewCalendarEventsTest extends AbstractTestBase {
         List<String> expected = Arrays.asList("TITLE", "CALENDAR", "START", "END", "RECURRENT", "RECURRENCE", "INVITATION STATUS");
 
         Assert.assertEquals(calenderEventsPage.getColumnNames(), expected);
+        test.pass("column names verified");
     }
 
     @Test(dataProvider = "calendarEvents")
